@@ -19,7 +19,7 @@ export default function Navbar() {
 
   const navLinks = [
     {
-      label: "Jobs",
+      label: "Browse Jobs",
       href: "/jobs",
     },
     {
