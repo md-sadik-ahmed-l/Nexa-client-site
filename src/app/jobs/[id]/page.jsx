@@ -1,10 +1,15 @@
 import React from 'react';
-import { getJobById } from '@/lib/api/jobs';
+// import { getJobById } from '@/lib/api/jobs';
+
 import { Button, Link } from '@heroui/react';
 import { MapPin, Briefcase, CircleDollar, Calendar, ArrowUpRight } from '@gravity-ui/icons';
+import { getJobById } from '@/lib/api/jobs';
 
 const Page = async ({ params }) => {
     const { id } = await params;
+
+    console.log(id)
+
     const job = await getJobById(id);
 
     // Guard clause in case API fails or returns null
@@ -32,6 +37,8 @@ const Page = async ({ params }) => {
             day: 'numeric'
         });
     };
+
+    console.log(job)
 
     return (
         <main className="w-full min-h-screen bg-zinc-950 text-zinc-100 p-6 md:p-12 lg:p-16">
@@ -143,14 +150,14 @@ const Page = async ({ params }) => {
                     
 
                     {/* Action Button: Apply Routing Link Container */}
-                    <Button
-                        as={Link}
+                    <Link
+                        
                         href={`/jobs/${id}/apply`}
                         className="w-full bg-purple-600 hover:bg-purple-500 text-white font-medium py-6 rounded-xl shadow-lg transition-colors flex items-center justify-center gap-2"
                         endContent={<ArrowUpRight className="w-4 h-4" />}
                     >
                         Apply For This Job
-                    </Button>
+                    </Link>
                 </aside>
 
             </div>
